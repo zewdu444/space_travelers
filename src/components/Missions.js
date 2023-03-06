@@ -1,8 +1,18 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchMissions } from '../redux/missions/missionsSlice';
 
 function Missions() {
+  const dispatch = useDispatch();
+  const status = useSelector((state) => state.missions.status);
+  const missions = useSelector((state) => state.missions.missionstore);
+  useEffect(() => {
+    if (status === 'idle') {
+      dispatch(fetchMissions());
+    }
+  }, [status, dispatch]);
   return (
     <div className="px-4 pr-4">
       <Table striped bordered hover>
@@ -15,44 +25,27 @@ function Missions() {
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td className="fw-bold">Thaicom</td>
-            <td className="w-50">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              In quibusdam sed exercitationem consequuntur quaerat.
-              Facilis laudantium ut minima quaerat soluta, aliquid mollitia
-              voluptas at blanditiis vero architecto assumenda aut incidunt?
-            </td>
-            <td className="text-center align-middle">
-              <Button variant="secondary" size="sm" disabled>
-                NOT A MEMBER
-              </Button>
-            </td>
-            <td className="text-center align-middle">
-              <Button variant="outline-secondary" size="md">
-                Join Mission
-              </Button>
-            </td>
-          </tr>
-          <tr>
-            <td className="fw-bold">Telstar</td>
-            <td className="w-50">
-              Lorem ipsum dolor sit amet consectetur adipisicing elit.
-              In quibusdam sed exercitationem consequuntur quaerat.
-              Facilis laudantium ut minima quaerat soluta, aliquid mollitia
-              voluptas at blanditiis vero architecto assumenda aut incidunt?
-            </td>
-            <td className="text-center align-middle">
-              <Button variant="success" size="sm" disabled>
-                NOT A MEMBER
-              </Button>
-            </td>
-            <td className="text-center align-middle">
-              <Button variant="outline-danger align-middle" size="md">
-                Join Mission
-              </Button>
-            </td>
-          </tr>
+          {
+          missions.map((mission) => (
+            <tr key={mission.mission_id}>
+              <td className="fw-bold">{mission.mission_name}</td>
+              <td className="w-50">
+                {mission.description}
+              </td>
+              <td className="text-center align-middle">
+                <Button variant="secondary" size="sm" disabled>
+                  NOT A MEMBER
+                </Button>
+              </td>
+              <td className="text-center align-middle">
+                <Button variant="outline-secondary" size="md">
+                  Join Mission
+                </Button>
+              </td>
+            </tr>
+          ))
+        }
+
         </tbody>
       </Table>
 
