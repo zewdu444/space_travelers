@@ -2,17 +2,22 @@ import React, { useEffect } from 'react';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchMissions } from '../redux/missions/missionsSlice';
+import { fetchMissions, joinMission } from '../redux/missions/missionsSlice';
 
 function Missions() {
   const dispatch = useDispatch();
   const status = useSelector((state) => state.missions.status);
   const missions = useSelector((state) => state.missions.missionstore);
+  // const [join] = useState('Join Misson');
   useEffect(() => {
     if (status === 'idle') {
       dispatch(fetchMissions());
     }
   }, [status, dispatch]);
+
+  const missionHandler = (e) => {
+    dispatch(joinMission(e.target.id));
+  };
   return (
     <div className="px-4 pr-4">
       <Table striped bordered hover>
@@ -33,13 +38,18 @@ function Missions() {
                 {mission.description}
               </td>
               <td className="text-center align-middle">
-                <Button variant="secondary" size="sm" disabled>
-                  NOT A MEMBER
+                <Button variant={mission.reserved ? ('success') : ('secondary')} size="sm" disabled>
+                  {mission.reserved ? ('Active Member') : ('NOT A MEMBER')}
                 </Button>
               </td>
               <td className="text-center align-middle">
-                <Button variant="outline-secondary" size="md">
-                  Join Mission
+                <Button
+                  id={mission.mission_id}
+                  variant={mission.reserved ? ('outline-danger') : ('outline-secondary')}
+                  size="md"
+                  onClick={missionHandler}
+                >
+                  {mission.reserved ? ('Leave Misson') : ('Join Misson')}
                 </Button>
               </td>
             </tr>
