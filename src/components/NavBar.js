@@ -22,7 +22,6 @@ function NavBar() {
             <Nav.Link
               className="text-primary pe-5"
               to="/"
-              activeClassName="underline"
               as={Link}
             >
               Rockets
