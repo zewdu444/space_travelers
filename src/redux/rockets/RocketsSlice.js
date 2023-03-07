@@ -7,6 +7,7 @@ const initialState = {
   status: 'idle',
   error: null,
 };
+
 export const rocketsSlice = createSlice({
   name: 'rockets',
   initialState,
