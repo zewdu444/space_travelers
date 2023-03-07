@@ -19,7 +19,10 @@
   ],
   "plugins": ["react"],
   "rules": {
-    "react/jsx-filename-extension": ["warn", { "extensions": [".js", ".jsx"] }],
+    "react/jsx-filename-extension": [
+      "error",
+      { "extensions": [".js", ".jsx"] }
+    ],
     "react/react-in-jsx-scope": "off",
     "import/no-unresolved": "off",
     "no-shadow": "off",
@@ -32,16 +35,7 @@
         "peerDependencies": false
       }
     ],
-    "import/extensions": [
-      "error",
-      "ignorePackages",
-      {
-        "js": "never",
-        "jsx": "never",
-        "ts": "never",
-        "tsx": "never"
-      }
-    ]
+    "import/extensions": "off"
   },
   "ignorePatterns": ["dist/", "build/"]
 }
