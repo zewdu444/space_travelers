@@ -1,5 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+const api = 'https://api.spacexdata.com/v3/missions';
+
 const initialState = {
   rockets: [],
   status: 'idle',
