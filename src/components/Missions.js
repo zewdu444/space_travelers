@@ -33,16 +33,16 @@ function Missions() {
           {
           missions.map((mission) => (
             <tr key={mission.mission_id}>
-              <td className="fw-bold " style={{ width: '15%' }}>{mission.mission_name}</td>
+              <td className="fw-bold " style={{ width: '10%' }}>{mission.mission_name}</td>
               <td style={{ width: '45%' }}>
                 {mission.description}
               </td>
-              <td className="text-center align-middle" style={{ width: '10%' }}>
-                <Badge bg={mission.reserved ? ('success') : ('secondary')}>
+              <td className="text-center align-middle" style={{ width: '5%' }}>
+                <Badge bg={mission.reserved ? ('info') : ('secondary')}>
                   {mission.reserved ? ('Active Member') : ('NOT A MEMBER')}
                 </Badge>
               </td>
-              <td className="text-center align-middle" style={{ width: '15%' }}>
+              <td className="text-center align-middle" style={{ width: '10%' }}>
                 <Button
                   id={mission.mission_id}
                   variant={mission.reserved ? ('outline-danger') : ('outline-secondary')}

@@ -13,7 +13,7 @@ const logger = createLogger({
 
 const store = configureStore({
   reducer: {
-    rocckets: rocketReducer,
+    rockets: rocketReducer,
     missions: missionsReducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
