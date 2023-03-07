@@ -3,7 +3,7 @@ import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import Badge from 'react-bootstrap/Badge';
-import { fetchMissions, joinMission } from '../redux/missions/missionsSlice.js';
+import { fetchMissions, joinMission } from '../redux/missions/MissionsSlice';
 
 function Missions() {
   const dispatch = useDispatch();
