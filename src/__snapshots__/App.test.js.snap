@@ -1,0 +1,216 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`App renders correctly 1`] = `
+<div
+  className="App"
+>
+  <div>
+    <nav
+      className="px-5 navbar navbar-expand-lg navbar-light bg-white"
+    >
+      <a
+        className="fs-2 fw-medium navbar-brand"
+        href="/"
+        onClick={[Function]}
+      >
+        <img
+          alt="planet log"
+          height={55}
+          src="planet.png"
+          width={55}
+        />
+          
+        Space Traveler's Hub
+      </a>
+      <button
+        aria-controls="basic-navbar-nav "
+        aria-label="Toggle navigation"
+        className="navbar-toggler collapsed"
+        onClick={[Function]}
+        type="button"
+      >
+        <span
+          className="navbar-toggler-icon"
+        />
+      </button>
+      <div
+        aria-expanded={null}
+        className="justify-content-end navbar-collapse collapse"
+        id="basic-navbar-nav"
+      >
+        <div
+          className="text-primary fs-5 navbar-nav"
+          onKeyDown={[Function]}
+        >
+          <a
+            className="text-primary pe-5 nav-link"
+            data-rr-ui-event-key={null}
+            disabled={false}
+            href="/"
+            onClick={[Function]}
+          >
+            Rockets
+          </a>
+          <a
+            className="text-primary nav-link"
+            data-rr-ui-event-key={null}
+            disabled={false}
+            href="/missions"
+            onClick={[Function]}
+          >
+            Missions
+          </a>
+          <div
+            className="d-none d-md-none d-lg-block mt-3 mb-3 vr"
+          />
+          <a
+            className="text-primary nav-link"
+            data-rr-ui-event-key={null}
+            disabled={false}
+            href="/myprofile"
+            onClick={[Function]}
+          >
+            My profile
+          </a>
+        </div>
+      </div>
+    </nav>
+    <hr />
+  </div>
+</div>
+`;
+
+exports[`Missons page renders correctly 1`] = `
+<div
+  className="px-5 pr-5"
+>
+  <table
+    className="table table-striped table-bordered table-hover"
+  >
+    <thead>
+      <tr>
+        <th>
+          Mission
+        </th>
+        <th>
+          Description
+        </th>
+        <th>
+          Status
+        </th>
+        <th />
+      </tr>
+    </thead>
+    <tbody />
+  </table>
+</div>
+`;
+
+exports[`MyProfile page renders correctly 1`] = `
+<div
+  className="px-2 pr-2"
+>
+  <div
+    className="row"
+  >
+    <div
+      className="ps-lg-5 col-lg-6 col-md-6 col-sm-12"
+    >
+      <h2>
+        My Missions
+      </h2>
+      <div
+        className="list-group"
+        onKeyDown={[Function]}
+      />
+    </div>
+    <div
+      className="pe-lg-5 col-lg-6 col-md-6 col-sm-12"
+    >
+      <h2>
+        My Rockets
+      </h2>
+      <div
+        className="list-group"
+        onKeyDown={[Function]}
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`NavBar page renders correctly 1`] = `
+<div>
+  <nav
+    className="px-5 navbar navbar-expand-lg navbar-light bg-white"
+  >
+    <a
+      className="fs-2 fw-medium navbar-brand"
+      href="/"
+      onClick={[Function]}
+    >
+      <img
+        alt="planet log"
+        height={55}
+        src="planet.png"
+        width={55}
+      />
+        
+      Space Traveler's Hub
+    </a>
+    <button
+      aria-controls="basic-navbar-nav "
+      aria-label="Toggle navigation"
+      className="navbar-toggler collapsed"
+      onClick={[Function]}
+      type="button"
+    >
+      <span
+        className="navbar-toggler-icon"
+      />
+    </button>
+    <div
+      aria-expanded={null}
+      className="justify-content-end navbar-collapse collapse"
+      id="basic-navbar-nav"
+    >
+      <div
+        className="text-primary fs-5 navbar-nav"
+        onKeyDown={[Function]}
+      >
+        <a
+          className="text-primary pe-5 nav-link"
+          data-rr-ui-event-key={null}
+          disabled={false}
+          href="/"
+          onClick={[Function]}
+        >
+          Rockets
+        </a>
+        <a
+          className="text-primary nav-link"
+          data-rr-ui-event-key={null}
+          disabled={false}
+          href="/missions"
+          onClick={[Function]}
+        >
+          Missions
+        </a>
+        <div
+          className="d-none d-md-none d-lg-block mt-3 mb-3 vr"
+        />
+        <a
+          className="text-primary nav-link"
+          data-rr-ui-event-key={null}
+          disabled={false}
+          href="/myprofile"
+          onClick={[Function]}
+        >
+          My profile
+        </a>
+      </div>
+    </div>
+  </nav>
+  <hr />
+</div>
+`;
