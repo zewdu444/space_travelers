@@ -1,10 +1,10 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
 
-const api = 'https://api.spacexdata.com/v3/missions';
+const api = 'https://api.spacexdata.com/v4/rockets';
 
 const initialState = {
-  rockets: [],
+  rocketList: [],
   status: 'idle',
   error: null,
 };
@@ -21,6 +21,20 @@ export const fetchRockets = createAsyncThunk('rockets/fetchRockets', async () =>
 export const rocketsSlice = createSlice({
   name: 'rockets',
   initialState,
+  reducers: {
+    reserveRocket: (state, payload) => ({
+      ...state,
+      rocketList: state.rocketList.map((rocket) => {
+        if (rocket.id === payload.payload) {
+          if (rocket.reserved === true) {
+            return { ...rocket, reserved: false };
+          }
+          return { ...rocket, reserved: true };
+        }
+        return rocket;
+      }),
+    }),
+  },
   extraReducers(builder) {
     builder.addCase(fetchRockets.pending, (state) => ({
       ...state,
@@ -28,11 +42,11 @@ export const rocketsSlice = createSlice({
     }))
       .addCase(fetchRockets.fulfilled, (state, action) => ({
         ...state,
-        rocketList: action.payload.map((mission) => ({
-
-          mission_id: mission.mission_id,
-          mission_name: mission.mission_name,
-          description: mission.description,
+        rocketList: action.payload.map((rocket) => ({
+          id: rocket.id,
+          name: rocket.name,
+          description: rocket.description,
+          flickr_images: rocket.flickr_images,
         })),
         status: 'loaded',
       }))
@@ -44,5 +58,5 @@ export const rocketsSlice = createSlice({
   },
 
 });
-
+export const { reserveRocket } = rocketsSlice.actions;
 export default rocketsSlice.reducer;
