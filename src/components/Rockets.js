@@ -9,7 +9,6 @@ function Rockets() {
   const status = useSelector((state) => state.rockets.status);
   const rockets = useSelector((state) => state.rockets.rocketList);
   console.log(rockets);
-  console.log(status);
 
   useEffect(() => {
     if (status === 'idle') {
