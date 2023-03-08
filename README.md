@@ -1,7 +1,9 @@
 <a name="readme-top"></a>
 
 <div align="center">
-
+  <!-- You are encouraged to replace this logo with your own! Otherwise you can also remove it. -->
+  <img src="https://cdn-icons-png.flaticon.com/512/3212/3212567.png" alt="logo" width="140"  height="auto" />
+  <br/>
   <h3> 🚀 <b>Space Travelers' Hub</b> 🚀</h3>
 
 </div>
@@ -46,7 +48,6 @@
 
 ## 🚀 Live Demo <a name="live-demo"></a>
 
->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -97,10 +98,11 @@ To run the project, execute the following command:
 
 - GitHub: [@Donmark2k](https://github.com/Donmark2k)
 - Twitter: [@donmark2k](https://twitter.com/donmark2k)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/chukwuemeka-ochuba/)
 
 ## 🔭 Future Features <a name="future-features"></a>
-
->
+- I will add time and date below the nav bar
+- I will add footer
 
 ## 🤝 Contributing <a name="contributing"></a>
 
@@ -118,8 +120,7 @@ Feel free to check the [issues page](https://github.com/zewdu444/space_travelers
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-> I would like to thank Microverse team
-
+I would like to appreciate [Microverse](https://www.microverse.org/) for providing the resources and the platform for us to be a Professional full-stack developer.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ## 📝 License <a name="license"></a>
