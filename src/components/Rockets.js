@@ -2,22 +2,19 @@ import React, { useEffect } from 'react';
 import Button from 'react-bootstrap/Button';
 import { useDispatch, useSelector } from 'react-redux';
 import Badge from 'react-bootstrap/Badge';
+import { PropTypes } from 'prop-types';
 import { fetchRockets, reserveRocket } from '../redux/rockets/RocketsSlice';
 
 function Rockets() {
   const dispatch = useDispatch();
   const status = useSelector((state) => state.rockets.status);
   const rockets = useSelector((state) => state.rockets.rocketList);
-  console.log(rockets);
 
   useEffect(() => {
     if (status === 'idle') {
       dispatch(fetchRockets());
     }
   }, [status, dispatch]);
-  const rocketHandler = (e) => {
-    dispatch(reserveRocket(e.target.id));
-  };
 
   return (
     <>
@@ -39,10 +36,11 @@ function Rockets() {
               </p>
               <Button
                 type="button"
-                id={rocket.id}
                 variant={rocket.reserved ? ('outline-secondary') : ('btn btn-primary')}
                 size="md"
-                onClick={rocketHandler}
+                onClick={() => {
+                  dispatch(reserveRocket(rocket.id));
+                }}
               >
                 {rocket.reserved ? ('Cancel Reservation') : ('Reserve Rocket')}
               </Button>
@@ -53,5 +51,13 @@ function Rockets() {
     </>
   );
 }
-
+Rockets.propTypes = {
+  rocket: PropTypes.shape({
+    id: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    reserved: PropTypes.bool.isRequired,
+  }).isRequired,
+};
 export default Rockets;

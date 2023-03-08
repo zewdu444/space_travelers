@@ -34,7 +34,7 @@ function MyProfile() {
         >
           <h2>My Rockets</h2>
           <ListGroup>
-          {rockets.filter((rocket) => rocket.reserved === true).map((rocket) => (
+            {rockets.filter((rocket) => rocket.reserved === true).map((rocket) => (
               <ListGroup.Item key={rocket.id}>
                 {rocket.name}
               </ListGroup.Item>
