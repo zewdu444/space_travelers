@@ -6,6 +6,8 @@ import { useSelector } from 'react-redux';
 
 function MyProfile() {
   const missions = useSelector((state) => state.missions.missionstore);
+  const rockets = useSelector((state) => state.rockets.rocketList);
+
   return (
     <div className="px-2 pr-2">
       <Row>
@@ -32,11 +34,11 @@ function MyProfile() {
         >
           <h2>My Rockets</h2>
           <ListGroup>
-            <ListGroup.Item>Cras justo odio</ListGroup.Item>
-            <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-            <ListGroup.Item>Morbi leo risus</ListGroup.Item>
-            <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
-            <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
+          {rockets.filter((rocket) => rocket.reserved === true).map((rocket) => (
+              <ListGroup.Item key={rocket.id}>
+                {rocket.name}
+              </ListGroup.Item>
+            ))}
           </ListGroup>
 
         </Col>
