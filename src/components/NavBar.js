@@ -1,8 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import logo from '../asset/planet.png';
+import '../App.css';
 
 function NavBar() {
   return (
@@ -18,11 +19,11 @@ function NavBar() {
           id="basic-navbar-nav"
           className="justify-content-end"
         >
-          <Nav className="text-primary fs-5">
-            <Nav.Link className="text-primary pe-5" to="/" as={Link}>Rockets</Nav.Link>
-            <Nav.Link className="text-primary" to="/missions" as={Link}>Missions</Nav.Link>
+          <Nav className="fs-5 navList">
+            <NavLink className="nav-link" to="/" as={Link}>Rockets</NavLink>
+            <NavLink className="nav-link" to="/missions" as={Link}>Missions</NavLink>
             <div className="d-none d-md-none d-lg-block mt-3 mb-3 vr" />
-            <Nav.Link className="text-primary" to="/myprofile" as={Link}>My profile</Nav.Link>
+            <NavLink className="nav-link" to="/myprofile" as={Link}>My profile</NavLink>
           </Nav>
         </Navbar.Collapse>
       </Navbar>
