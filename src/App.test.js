@@ -79,3 +79,35 @@ describe('Mission redux state tests', () => {
     expect(axiosSpy).toHaveBeenCalledWith(url);
   });
 });
+
+it('Rockets page renders correctly', () => {
+  const tree = renderer
+    .create(
+      <Provider store={store}>
+        <Rockets />
+      </Provider>,
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+// Rocket slicer and reducer check
+describe('Rocket redux state tests', () => {
+  it('Should initially hold Rocket data by default', () => {
+    const state = store.getState().rockets;
+    expect(state.rocketstore.length).toEqual(4);
+  });
+  it('should Reserve Rocket payload send correct', () => {
+    const expectedPayload = { payload: '9D1B7E0', type: 'rockets/reserveRocket' };
+    const actualPayload = reserveRocket('9D1B7E0');
+    expect(actualPayload).toEqual(expectedPayload);
+  });
+  it('Rockets fetch data from API', async () => {
+    const url = 'https://api.spacexdata.com/v4/rockets';
+    const axiosSpy = jest.spyOn(axios, 'get');
+    jest.setTimeout(90000);
+    const dispatchSpy = jest.fn();
+    await fetchRockets(url)(dispatchSpy);
+    expect(axiosSpy).toHaveBeenCalledWith(url);
+  });
+});
