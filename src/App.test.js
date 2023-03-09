@@ -12,7 +12,6 @@ import { fetchMissions, joinMission } from './redux/missions/MissionsSlice';
 import { fetchRockets, reserveRocket } from './redux/rockets/RocketsSlice';
 import Rockets from './components/Rockets';
 
-
 it('App renders correctly', () => {
   const tree = renderer
     .create(
