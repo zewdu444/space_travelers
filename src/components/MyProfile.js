@@ -19,11 +19,17 @@ function MyProfile() {
         >
           <h2>My Missions</h2>
           <ListGroup>
-            {missions.filter((mission) => mission.reserved === true).map((mission) => (
-              <ListGroup.Item key={mission.mission_id}>
-                {mission.mission_name}
-              </ListGroup.Item>
-            ))}
+            {missions.filter((mission) => mission.reserved === true).length > 0 ? (
+              missions
+                .filter((mission) => mission.reserved === true)
+                .map((mission) => (
+                  <ListGroup.Item key={mission.mission_id}>
+                    {mission.mission_name}
+                  </ListGroup.Item>
+                ))
+            ) : (
+              <ListGroup.Item>No missions have been reserved.</ListGroup.Item>
+            )}
           </ListGroup>
         </Col>
         <Col
@@ -34,13 +40,18 @@ function MyProfile() {
         >
           <h2>My Rockets</h2>
           <ListGroup>
-            {rockets.filter((rocket) => rocket.reserved === true).map((rocket) => (
-              <ListGroup.Item key={rocket.id}>
-                {rocket.name}
-              </ListGroup.Item>
-            ))}
+            {rockets.filter((rocket) => rocket.reserved === true).length > 0 ? (
+              rockets
+                .filter((rocket) => rocket.reserved === true)
+                .map((rocket) => (
+                  <ListGroup.Item key={rocket.id}>
+                    {rocket.name}
+                  </ListGroup.Item>
+                ))
+            ) : (
+              <ListGroup.Item>No rockets have been reserved.</ListGroup.Item>
+            )}
           </ListGroup>
-
         </Col>
 
       </Row>
