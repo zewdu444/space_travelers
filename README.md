@@ -56,16 +56,18 @@
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-to run on your localhost clone the project to local folder
+To run on your localhost clone the project to local folder
 
-> <p>cd space_travelers</p>
-> <p>npm i</p>
-> <p> npm start<p>
+- copy [this link](https://github.com/zewdu444/space_travelers.git).
+- get the directory that you want to clone the repository.
+- open the command prompt in this directory.
+- write git clone git@github.com:Ibizugbe/space-travellers.git
+- go to the repository folder in your command prompt cd Space-travellers
+- use npm install to install the dependencies.
+- use npm start to start live server.
+
 
 ### Setup
-
-> <p> git clone https://github.com/zewdu444/space_travelers.git</p>
-> cd space_travelers
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -73,21 +75,32 @@ to run on your localhost clone the project to local folder
 
 In order to run this project you only need:
 
-- latest web-browser
-- node.js and npm
+- Have a working and updated browser
+- Have a local version control like git install on your computer
+- Have an account and sign in on GitHub, as online/remote version control system
+- Basic knowledge in JS and React JS
 
 ### Install
 
 To install this project in your local machine use
 
-> <p> npm i </p>
-> npm run build
+- Clone the git repo using this command: `git clone https://github.com/zewdu444/space_travelers.git`
 
 ### Usage
 
 To run the project, execute the following command:
 
-> In visual studio code open terminal then write "npm start" after on your browser open "http://localhost:3000".
+- In visual studio code open terminal then write "npm start" after on your browser open "http://localhost:3000".
+### Run tests
+
+- `npx stylelint "/*.{css,scss}"**`: To test css code
+- `npx eslint .` : To test Eslint Report
+
+### To test the application
+
+- `npm install --save-dev jest`
+- `npm test`
+
 
 ## 👥 Authors <a name="authors"></a>
 
