@@ -9,6 +9,9 @@ import store from './redux/store';
 import MyProfile from './components/MyProfile';
 import App from './App';
 import { fetchMissions, joinMission } from './redux/missions/MissionsSlice';
+import { fetchRockets, reserveRocket } from './redux/rockets/RocketsSlice';
+import Rockets from './components/Rockets';
+
 
 it('App renders correctly', () => {
   const tree = renderer
@@ -80,7 +83,7 @@ describe('Mission redux state tests', () => {
   });
 });
 
-it('Rockets page renders correctly', () => {
+it('MyProfile page renders correctly', () => {
   const tree = renderer
     .create(
       <Provider store={store}>
@@ -95,7 +98,7 @@ it('Rockets page renders correctly', () => {
 describe('Rocket redux state tests', () => {
   it('Should initially hold Rocket data by default', () => {
     const state = store.getState().rockets;
-    expect(state.rocketstore.length).toEqual(4);
+    expect(state.rocketList.length).toEqual(4);
   });
   it('should Reserve Rocket payload send correct', () => {
     const expectedPayload = { payload: '9D1B7E0', type: 'rockets/reserveRocket' };
