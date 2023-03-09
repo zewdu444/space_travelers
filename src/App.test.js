@@ -9,6 +9,8 @@ import store from './redux/store';
 import MyProfile from './components/MyProfile';
 import App from './App';
 import { fetchMissions, joinMission } from './redux/missions/MissionsSlice';
+import { fetchRockets, reserveRocket } from './redux/rockets/RocketsSlice';
+import Rockets from './components/Rockets';
 
 it('App renders correctly', () => {
   const tree = renderer
@@ -76,6 +78,38 @@ describe('Mission redux state tests', () => {
 
     await fetchMissions(url)(dispatchSpy);
 
+    expect(axiosSpy).toHaveBeenCalledWith(url);
+  });
+});
+
+it('MyProfile page renders correctly', () => {
+  const tree = renderer
+    .create(
+      <Provider store={store}>
+        <Rockets />
+      </Provider>,
+    )
+    .toJSON();
+  expect(tree).toMatchSnapshot();
+});
+
+// Rocket slicer and reducer check
+describe('Rocket redux state tests', () => {
+  it('Should initially hold Rocket data by default', () => {
+    const state = store.getState().rockets;
+    expect(state.rocketList.length).toEqual(4);
+  });
+  it('should Reserve Rocket payload send correct', () => {
+    const expectedPayload = { payload: '9D1B7E0', type: 'rockets/reserveRocket' };
+    const actualPayload = reserveRocket('9D1B7E0');
+    expect(actualPayload).toEqual(expectedPayload);
+  });
+  it('Rockets fetch data from API', async () => {
+    const url = 'https://api.spacexdata.com/v4/rockets';
+    const axiosSpy = jest.spyOn(axios, 'get');
+    jest.setTimeout(90000);
+    const dispatchSpy = jest.fn();
+    await fetchRockets(url)(dispatchSpy);
     expect(axiosSpy).toHaveBeenCalledWith(url);
   });
 });
