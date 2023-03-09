@@ -8,11 +8,9 @@
 }
 
 .nav-link {
-    color: blue !important;
+  color: blue !important;
 }
 
 .active {
-    text-decoration: underline !important;
+  text-decoration: underline !important;
 }
-
-  
